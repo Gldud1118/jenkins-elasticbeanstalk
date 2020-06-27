@@ -4,7 +4,7 @@ pipeline {
         stage('Zip') {
             steps {
                 echo 'Zipping the application'
-                sh 'cd var/lib/jenkins/workspace/my-pipeline_master'
+                sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
                 sh 'zip -r my-pipeline_master.zip ./*'
                 
             }
