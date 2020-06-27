@@ -5,8 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>Github + Jenkins + AWS Elasticbeanstalk</div>
-        <div>ㅂㅐ포하고싶다 배포!!! S3 버킷에 올리고 AWS Elastic Beanstalk에 배포하기 .</div>
+       <div>ebextensions 폴더는 왜 안올라가니?</div>
       </header>
     </div>
   );
