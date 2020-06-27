@@ -18,7 +18,7 @@ pipeline {
         stage('Upload S3') {
             steps {
                 echo 'Uploading'
-                sh 'aws s3 cp /var/lib/jenkins/workspace/my-pipeline/target/my-pipeline.war s3://aws-beanstalk-deploy/${JOB_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
+                sh 'aws s3 cp /var/lib/jenkins/workspace/my-pipeline_master/target/my-pipeline_master.war s3://aws-beanstalk-deploy/${JOB_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
             }
         }
         stage('Deploy') {
