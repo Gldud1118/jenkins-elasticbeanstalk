@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Build War') {
+        stage('Zip') {
             steps {
-                sh 'pwd'
-                sh 'mvn -B -DskipTests clean package'
+                echo 'Zipping the application'
+                sh 'cd var/lib/jenkins/workspace/${PROJECT_NAME}'
+                sh 'zip -r ${PROJECT_NAME}.zip ./*'
+                
             }
         }
         stage('Test') {
@@ -16,7 +18,7 @@ pipeline {
         stage('Upload S3') {
             steps {
                 echo 'Uploading'
-                sh 'aws s3 cp /var/lib/jenkins/workspace/my-pipeline_master/target/my-pipeline_master.war s3://aws-beanstalk-deploy/${PROJECT_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
+                sh 'aws s3 cp /var/lib/jenkins/workspace/${PROJECT_NAME}/${PROJECT_NAME}.zip s3://aws-beanstalk-deploy/${PROJECT_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
             }
         }
         stage('Deploy') {
