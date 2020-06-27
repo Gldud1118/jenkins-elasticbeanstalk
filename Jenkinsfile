@@ -22,8 +22,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying'
-                sh 'aws elasticbeanstalk create-application-version --region ap-northeast-2 --application-name jenkins-test --version-label ${PROJECT_NAME}-${BUILD_NUMBER} --description ${BUILD_TAG} --source-bundle S3Bucket="aws-beanstalk-deploy",S3Key="${JOB_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war"' 
-                sh 'aws elasticbeanstalk update-environment --region ap-northeast-2 --environment-name JenkinsTest-env --version-label ${JOB_NAME}-${BUILD_NUMBER}'
+                sh 'aws elasticbeanstalk create-application-version --region ap-northeast-2 --application-name jenkins-test --version-label ${PROJECT_NAME}-${BUILD_NUMBER} --description ${BUILD_TAG} --source-bundle S3Bucket="aws-beanstalk-deploy",S3Key="${PROJECT_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war"' 
+                sh 'aws elasticbeanstalk update-environment --region ap-northeast-2 --environment-name JenkinsTest-env --version-label ${PROJECT_NAME}-${BUILD_NUMBER}'
             }
         }
     }
