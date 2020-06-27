@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>Github + Jenkins + AWS Elasticbeanstalk</div>
-        <div>master branch 테스트입니다.</div>
+        <div>ㅂㅐ포하고싶다 배포!!! S3 버킷에 올리고 AWS Elastic Beanstalk에 배포하기 .</div>
       </header>
     </div>
   );
