@@ -8,7 +8,7 @@ pipeline {
                 sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
                 sh 'yarn install && yarn build'
                 sh 'rm my-pipeline_master.zip'
-                sh 'zip -r my-pipeline_master.zip ./* .ebextensions'
+                sh 'zip -r my-pipeline_master.zip ./* .ebextensions .npmrc .ebignore'
                 
             }
         }
