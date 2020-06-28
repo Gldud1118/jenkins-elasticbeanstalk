@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    tools {nodejs "Node-12.13.1"}
+    tools {nodejs "Node-12.16.3"}
     stages {
         stage('Zip') {
             steps {
