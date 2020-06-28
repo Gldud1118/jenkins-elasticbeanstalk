@@ -8,7 +8,7 @@ pipeline {
                 sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
                 sh 'rm my-pipeline_master.zip'
                 sh 'rm -rf node_modules .next build'
-                sh 'yarn build'
+                sh 'npm install && npm build'
                 sh 'zip -r my-pipeline_master.zip ./* .ebextensions .npmrc .ebignore .next'
                 
             }
