@@ -4,8 +4,9 @@ pipeline {
         stage('Zip') {
             steps {
                 echo 'Zipping the application'
-                sh 'cd /var/lib/jenkins/workspace'
-                sh 'zip -r my-pipeline_master.zip /my-pipeline_master'
+                sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
+                sh 'rm my-pipeline_master.zip'
+                sh 'zip -r my-pipeline_master.zip ./*'
                 
             }
         }
@@ -18,7 +19,7 @@ pipeline {
         stage('Upload S3') {
             steps {
                 echo 'Uploading'
-                sh 'aws s3 cp /var/lib/jenkins/workspace/my-pipeline_master.zip s3://aws-beanstalk-deploy/${PROJECT_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
+                sh 'aws s3 cp /var/lib/jenkins/workspace/my-pipeline_master/my-pipeline_master.zip s3://aws-beanstalk-deploy/${PROJECT_NAME}-${GIT_BRANCH}-${BUILD_NUMBER}.war --acl public-read-write --region ap-northeast-2'
             }
         }
         stage('Deploy') {
