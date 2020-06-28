@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    tools {nodejs "Node-12.16.3"}
+    tools {nodejs "Node-14.4"}
     stages {
         stage('Zip') {
             steps {
                 echo 'Zipping the application'
                 sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
-                sh 'npm run build'
+                sh 'yarn install && yarn build'
                 sh 'rm my-pipeline_master.zip'
                 sh 'zip -r my-pipeline_master.zip ./* .ebextensions'
                 
