@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "npm install && npm run build && next start -p 8081",
+    "start": "next start -p 8081",
     "deploy": "NODE_ENV=production next build && NODE_ENV=production node ./server.js"
   },
   "author": "",
