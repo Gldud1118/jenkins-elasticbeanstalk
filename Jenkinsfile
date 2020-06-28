@@ -2,10 +2,6 @@ pipeline {
     agent any
     tools {nodejs "Node-12.16.3"}
     stages {
-        state('build'){
-            
-        
-        }
         stage('Zip') {
             steps {
                 echo 'Zipping the application'
