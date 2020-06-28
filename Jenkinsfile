@@ -7,6 +7,8 @@ pipeline {
                 echo 'Zipping the application'
                 sh 'cd /var/lib/jenkins/workspace/my-pipeline_master'
                 sh 'rm my-pipeline_master.zip'
+                sh 'rm -rf node_modules .next'
+                sh 'yarn install && yarn build'
                 sh 'zip -r my-pipeline_master.zip ./* .ebextensions .npmrc .ebignore .next'
                 
             }
